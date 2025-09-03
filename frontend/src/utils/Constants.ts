@@ -13,6 +13,7 @@ export const llms =
     ? (process.env.VITE_LLM_MODELS?.split(',') as string[])
     : [
         'openai_gpt_5',
+        'openai_gpt_5_mini',
         'openai_gpt_4o',
         'openai_gpt_4o_mini',
         'openai_gpt_4.1',
@@ -65,6 +66,7 @@ export const supportedLLmsForRagas = [
 ];
 export const supportedLLmsForGroundTruthMetrics = [
   'openai_gpt_5',
+  'openai_gpt_5_mini',
   'openai_gpt_4',
   'openai_gpt_4o',
   'openai_gpt_4o_mini',
@@ -84,7 +86,7 @@ export const supportedLLmsForGroundTruthMetrics = [
 export const prodllms =
   process.env.VITE_LLM_MODELS_PROD?.trim() != ''
     ? (process.env.VITE_LLM_MODELS_PROD?.split(',') as string[])
-    : ['openai_gpt_5', 'openai_gpt_4o', 'openai_gpt_4o_mini', 'diffbot', 'gemini_2.0_flash'];
+    : ['openai_gpt_5', 'openai_gpt_5_mini', 'openai_gpt_4o', 'openai_gpt_4o_mini', 'diffbot', 'gemini_2.0_flash'];
 
 export const chatModeLables = {
   vector: 'vector',

@@ -54,7 +54,15 @@ def get_llm(model: str):
                 llm= ChatOpenAI(
                 api_key=api_key,
                 model=model_name)
+            elif "gpt_5" in model:
+                logging.info("Using temperature=1 for gpt-5")   
+                llm = ChatOpenAI(
+                api_key=api_key,
+                model=model_name,
+                temperature=1
+                )
             else:
+                logging.info("Using temperature=0 for other openai models")   
                 llm = ChatOpenAI(
                 api_key=api_key,
                 model=model_name,
@@ -114,7 +122,8 @@ def get_llm(model: str):
         
         else: 
             model_name, api_endpoint, api_key = env_value.split(",")
-            llm = ChatOpenAI(
+            logging.info("Dropped to ChatOpenAI as default model")
+            llm = ChatOpenAI(                   
                 api_key=api_key,
                 base_url=api_endpoint,
                 model=model_name,
